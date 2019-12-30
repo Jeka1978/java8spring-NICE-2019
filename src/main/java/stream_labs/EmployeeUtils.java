@@ -7,7 +7,6 @@ import java.util.List;
  */
 public class EmployeeUtils {
     public static int totalSalary(List<Employee> employees) {
-       //todo finish this with stream API
-        return 0;
+        return employees.stream().mapToInt(Employee::getSalary).sum();
     }
 }

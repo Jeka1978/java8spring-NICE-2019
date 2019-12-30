@@ -9,5 +9,6 @@ import lombok.Data;
 @Data
 @Builder
 public class Employee {
+    private String name;
     private int salary;
 }
