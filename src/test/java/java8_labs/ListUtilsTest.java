@@ -16,7 +16,9 @@ public class ListUtilsTest {
     @Test
     public void countDuplicates() {
         List<String> list = asList("java", "Java", "JAVA", "scala");
-        int duplicates = ListUtils.countDuplicates("java", list);
+        int duplicates = ListUtils.countDuplicates("java", list,
+
+                (String t1,  String t2) -> t1.equalsIgnoreCase(t2));
         Assert.assertEquals(3,duplicates);
     }
 }
