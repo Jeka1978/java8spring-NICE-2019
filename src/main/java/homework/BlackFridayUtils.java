@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.counting;
@@ -20,6 +21,7 @@ public class BlackFridayUtils {
                 .limit(ChronoUnit.MONTHS.between(startDate, endDate))
                 .filter(localDate -> localDate.getDayOfWeek() == DayOfWeek.FRIDAY)
                 .collect(groupingBy(LocalDate::getYear, counting()));
+
 
 
         map.entrySet()
