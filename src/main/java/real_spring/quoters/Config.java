@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @PropertySource("classpath:quotes.properties")
 @Configuration
 @ComponentScan
+@EnableAspectJAutoProxy
 public class Config {
 
 

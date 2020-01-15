@@ -20,7 +20,7 @@ public class TalkingRobotImpl implements TalkingRobot {
 
 
 
-    @Film
+    @Autowired
     private List<Quoter> quoters;
 
 

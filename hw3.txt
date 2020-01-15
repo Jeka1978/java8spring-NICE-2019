@@ -1,0 +1,18 @@
+
+
+aop labs:
+support for @Benchmark or
+every time when DBException happens we need to send a mail to
+all dba (their mails are in property file)
+
+
+write service which has method which recieve message and
+run different logic according to message value
+like
+switch(message)
+ case "a"
+    // 20 lines of code
+ case "b"
+    // 30 lines of code
+
+without switch (remez - use Map)

@@ -15,6 +15,6 @@ public class Main {
                 new AnnotationConfigApplicationContext(Config.class);
 //        String[] names = context.getBeanDefinitionNames();
 //        Arrays.stream(names).forEach(System.out::println);
-//        context.close();
+        context.close();
     }
 }
