@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class TwoSecondsScopeProvider implements Scope {
 
-
     private Cache<String, Object> cache = CacheBuilder
             .newBuilder()
             .concurrencyLevel(1)
@@ -25,8 +24,18 @@ public class TwoSecondsScopeProvider implements Scope {
     @Override
     @SneakyThrows
     public Object get(String name, ObjectFactory<?> objectFactory) {
-        return cache.get(name, objectFactory::getObject);
+        return cache.get(name, () -> objectFactory.getObject());
     }
+
+
+
+
+
+
+
+
+
+
 
 
     @Override

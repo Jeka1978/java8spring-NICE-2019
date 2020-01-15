@@ -12,12 +12,17 @@ import java.util.Random;
 @Configuration
 @ComponentScan
 public class ScreenSaverConf {
-    private Random random = new Random();
 
 
     @Bean
+    public Random random(){
+        System.out.println("random object was created");
+        return new Random();
+    }
+
+    @Bean
     @Scope(value = "twoSeconds",proxyMode = ScopedProxyMode.TARGET_CLASS)
-    public Color color() {
+    public Color color(Random random) {
 
         return new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
     }
@@ -26,12 +31,11 @@ public class ScreenSaverConf {
     @SneakyThrows
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ScreenSaverConf.class);
-
         ColorFrame bean = context.getBean(ColorFrame.class);
         System.out.println(bean.getClass());
         while (true) {
             context.getBean(ColorFrame.class).moveToRandomLocation();
-            Thread.sleep(50);
+            Thread.sleep(100);
         }
     }
 }

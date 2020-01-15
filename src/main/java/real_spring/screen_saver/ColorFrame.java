@@ -15,7 +15,8 @@ import java.util.Random;
 @Component
 public class ColorFrame extends JFrame {
 
-    private Random random = new Random();
+    @Autowired
+    private Random random;
 
     @Autowired
     private Color color;
