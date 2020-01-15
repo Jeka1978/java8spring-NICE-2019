@@ -1,7 +1,6 @@
 package real_spring.screen_saver;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -14,7 +13,7 @@ import java.util.Random;
  */
 
 @Component
-public abstract class ColorFrame extends JFrame {
+public class ColorFrame extends JFrame {
 
     private Random random = new Random();
 
@@ -24,6 +23,11 @@ public abstract class ColorFrame extends JFrame {
 
     @PostConstruct
     public void init() {
+
+        System.out.println(color.getClass());
+        System.out.println(color.getBlue());
+        System.out.println(color.getBlue());
+        System.out.println(color.getBlue());
         setSize(400, 400);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -31,14 +35,10 @@ public abstract class ColorFrame extends JFrame {
 
 
     public void moveToRandomLocation() {
-        color = getColorBean();
         setLocation(random.nextInt(1200), random.nextInt(900));
         getContentPane().setBackground(color);
         repaint();
     }
-
-    @Lookup("color")
-    protected abstract Color getColorBean() ;
 
 
 }
